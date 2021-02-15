@@ -1,4 +1,4 @@
-package watermill_stomp
+package stomp
 
 import (
 	"sync"
@@ -38,6 +38,8 @@ func newConnection(
 		closing:   make(chan struct{}),
 		connected: make(chan struct{}),
 	}
+
+	return pubsub, nil
 }
 
 func (c *connectionWrapper) Close() error {
