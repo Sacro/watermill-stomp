@@ -3,13 +3,8 @@
 
 version: '3'
 services:
-  nats:
-    image: nats:2
+  rabbitmq:
+    build: .
     ports:
-      - "0.0.0.0:4222:4222"
+      - "0.0.0.0:61613:61613"
     restart: unless-stopped
-    command: ["-js"]
-    ulimits:
-      nofile:
-        soft: 65536
-        hard: 65536
